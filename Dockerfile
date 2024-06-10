@@ -27,7 +27,6 @@ ENV TORCH_COMMAND="pip install torch==${TORCH_VERSION} torchvision --index-url $
 ENV XFORMERS_PACKAGE="xformers==${XFORMERS_VERSION}"
 RUN source /venv/bin/activate && \
     ${TORCH_COMMAND} && \
-    pip3 install -r requirements_versions.txt --extra-index-url ${TORCH_INDEX_URL} && \
     pip3 install ${XFORMERS_PACKAGE} --index-url ${TORCH_INDEX_URL} &&  \
     pip3 install . && \
     deactivate

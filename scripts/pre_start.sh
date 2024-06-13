@@ -14,17 +14,21 @@ else
 fi
 
 sync_apps() {
-    # Sync venv to workspace to support Network volumes
-    echo "Syncing venv to workspace, please wait..."
-    mkdir -p ${VENV_PATH}
-    rsync -rlptDu /venv/ ${VENV_PATH}/
+    # Only sync if the DISABLE_SYNC environment variable is not set
+    if [ -z "${DISABLE_SYNC}" ]; then
+        # Sync venv to workspace to support Network volumes
+        echo "Syncing venv to workspace, please wait..."
+        mkdir -p ${VENV_PATH}
+        mv /venv/* ${VENV_PATH}/
+        rm -rf /venv
 
-    # Sync application to workspace to support Network volumes
-    echo "Syncing ${APP} to workspace, please wait..."
-    rsync -rlptDu /${APP}/ /workspace/${APP}/
+        # Sync application to workspace to support Network volumes
+        echo "Syncing ${APP} to workspace, please wait..."
+        mv /${APP} /workspace/${APP}
 
-    echo "${TEMPLATE_VERSION}" > ${DOCKER_IMAGE_VERSION_FILE}
-    echo "${VENV_PATH}" > "/workspace/${APP}/venv_path"
+        echo "${TEMPLATE_VERSION}" > ${DOCKER_IMAGE_VERSION_FILE}
+        echo "${VENV_PATH}" > "/workspace/${APP}/venv_path"
+    fi
 }
 
 fix_venvs() {

@@ -11,7 +11,7 @@ variable "APP" {
 }
 
 variable "RELEASE" {
-    default = "1.1.0"
+    default = "1.2.0"
 }
 
 variable "CU_VERSION" {
@@ -23,7 +23,7 @@ variable "BASE_IMAGE_REPOSITORY" {
 }
 
 variable "BASE_IMAGE_VERSION" {
-    default = "1.4.0"
+    default = "1.7.0"
 }
 
 variable "CUDA_VERSION" {
@@ -43,7 +43,6 @@ target "default" {
         INDEX_URL = "https://download.pytorch.org/whl/cu${CU_VERSION}"
         TORCH_VERSION = "${TORCH_VERSION}+cu${CU_VERSION}"
         XFORMERS_VERSION = "0.0.26.post1"
-        STABLE_AUDIO_TOOLS_COMMIT = "b51af8b60a0e619780e6be5cd35bd2525073ec52"
-        VENV_PATH = "/workspace/venvs/stable-audio-tools"
+        STABLE_AUDIO_TOOLS_COMMIT = "fa1bfaa4c3d6249806f16bad203ef6633eb125c4"
     }
 }

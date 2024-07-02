@@ -16,7 +16,8 @@
   https://github.com/Stability-AI/stable-audio-tools)
 * Torch 2.3.0
 * xformers 0.0.26.post1
-* Jupyter Lab
+* [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)
+* [code-server](https://github.com/coder/code-server)
 * [runpodctl](https://github.com/runpod/runpodctl)
 * [OhMyRunPod](https://github.com/kodxana/OhMyRunPod)
 * [RunPod File Uploader](https://github.com/kodxana/RunPod-FilleUploader)
@@ -67,6 +68,7 @@ docker run -d \
   --gpus all \
   -v /workspace \
   -p 3000:3001 \
+  -p 7777:7777 \
   -p 8888:8888 \
   -p 2999:2999 \
   -e VENV_PATH="/workspace/venvs/stable-audio-tools" \
@@ -80,6 +82,7 @@ You can obviously substitute the image name and tag with your own.
 | Connect Port | Internal Port | Description          |
 |--------------|---------------|----------------------|
 | 3000         | 3001          | stable-audio-tools   |
+| 7777         | 7777          | Code Server          |
 | 8888         | 8888          | Jupyter Lab          |
 | 2999         | 2999          | RunPod File Uploader |
 
@@ -87,7 +90,6 @@ You can obviously substitute the image name and tag with your own.
 
 | Variable             | Description                                      | Default                             |
 |----------------------|--------------------------------------------------|-------------------------------------|
-| VENV_PATH            | Set the path for the Python venv for the app     | /workspace/venvs/stable-audio-tools |
 | JUPYTER_LAB_PASSWORD | Set a password for Jupyter lab                   | not set - no password               |
 | DISABLE_AUTOLAUNCH   | Disable Web UIs from launching automatically     | (not set)                           |
 | DISABLE_SYNC         | Disable syncing if using a RunPod network volume | (not set)                           |

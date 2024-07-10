@@ -11,7 +11,7 @@ variable "APP" {
 }
 
 variable "RELEASE" {
-    default = "1.2.0"
+    default = "1.3.0"
 }
 
 variable "CU_VERSION" {
@@ -23,7 +23,7 @@ variable "BASE_IMAGE_REPOSITORY" {
 }
 
 variable "BASE_IMAGE_VERSION" {
-    default = "1.7.0"
+    default = "1.8.0"
 }
 
 variable "CUDA_VERSION" {
@@ -31,7 +31,7 @@ variable "CUDA_VERSION" {
 }
 
 variable "TORCH_VERSION" {
-    default = "2.3.0"
+    default = "2.3.1"
 }
 
 target "default" {
@@ -42,7 +42,7 @@ target "default" {
         BASE_IMAGE = "${BASE_IMAGE_REPOSITORY}:${BASE_IMAGE_VERSION}-cuda${CUDA_VERSION}-torch${TORCH_VERSION}"
         INDEX_URL = "https://download.pytorch.org/whl/cu${CU_VERSION}"
         TORCH_VERSION = "${TORCH_VERSION}+cu${CU_VERSION}"
-        XFORMERS_VERSION = "0.0.26.post1"
+        XFORMERS_VERSION = "0.0.27"
         STABLE_AUDIO_TOOLS_COMMIT = "fa1bfaa4c3d6249806f16bad203ef6633eb125c4"
     }
 }

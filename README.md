@@ -14,8 +14,8 @@
 * Python 3.10.12
 * [stable-audio-tools](
   https://github.com/Stability-AI/stable-audio-tools)
-* Torch 2.3.0
-* xformers 0.0.26.post1
+* Torch 2.3.1
+* xformers 0.0.27
 * [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)
 * [code-server](https://github.com/coder/code-server)
 * [runpodctl](https://github.com/runpod/runpodctl)

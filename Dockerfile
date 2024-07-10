@@ -29,6 +29,7 @@ RUN source /venv/bin/activate && \
     ${TORCH_COMMAND} && \
     pip3 install ${XFORMERS_PACKAGE} --index-url ${TORCH_INDEX_URL} &&  \
     pip3 install . && \
+    pip3 install flash_attn && \
     deactivate
 RUN mkdir -p /stable-audio-tools/ckpt
 
